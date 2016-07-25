@@ -1,0 +1,73 @@
+Neubeschaffung
+
+Anzahl der neuen Komponetnten im jeweiligen Raum und dessen Art zb PC, Drucker (ISt gleich Art)
+oder Beamer (Daten sind in einen Multidim-Array).
+-> Raum und Lieferant sind über selectboxen auszuwählen. getRooms and getSupplies
+-> Pflichtattribute jeder Komponentenart saveComponentArt($data)
+    Hersteller
+    Bezeichung
+    Raum
+    Gewährleistungsdauer
+    Kaufbeleg
+    Lieferant
+    Notiz
+-> Zu jeweiligen Komponentenart gibt es Pflichtattribute saveComponentArtDetail($data)
+    PC z.B CP, RAM, CUPB, Gerafikausgang
+    Switch z.B. Sreriennummer, Anzahl Ports und Uplinktyp (LWL/RJ45)
+    USW.
+
+BSP 2 Rechner
+$dataKomponente = array(
+            array(
+                    'Hersteller' => 'dell',
+                    'Bezeichung' => 'Schueler Rechner',
+                    'Raum' => 'r302',
+                    'Gewährleistungsdauer' => '5 Jahre',
+                    'Kaufbeleg' => 'name.pdf',
+                    'Lieferant' => 'dell',
+                    'Notiz' => 'Dell schweine teuer'
+                ),
+            array(
+                    'Hersteller' => 'dell',
+                    'Bezeichung' => 'Schueler Rechner',
+                    'Raum' => 'r302',
+                    'Gewährleistungsdauer' => '5 Jahre',
+                    'Kaufbeleg' => 'name.pdf',
+                    'Lieferant' => 'dell',
+                    'Notiz' => 'Dell schweine teuer')
+        );
+$dataKomponentenArtPC =
+                array(
+                        array(
+                                'Seriennr' => 'dell',
+                                'ramgr' => 'Schueler Rechner',
+                                'CPU' => 'Inter i7 3620',
+                                'Festplatte' => '80gb',
+                                'typ' => 'hdd',
+                                'grafikoutput' => 'DVI',
+                            )
+                        )
+
+Zu der jeweiligen Kompenentenart die dazugehörigen Attribute angeben 
+(Bezeichung) über Zuordnung den Wert.
+
+-> Komponentenart wird über Selectbox oder Textbox ausgewählt. Bezeichung kann (aus 
+bestehenden ausgewählt werden oder) neu eingetragen werden. getCompoments() 
+
+
+Ausmusterung
+->Ausgemusterter PC wird in Raum Augemusterter verschoben 
+(SQL Update R.akt => R.ausmusterung WHERE ID = selected PC or PC'S)
+
+
+Wartung
+->Mehrfachauswahl von meheren PC möglich und austauschen der Komponente
+(SQL Update akt => neu)
+
+Reporting
+->Auswahl des Raumes 
+->Anzeige aller im Raum befindlichen Komponenten, Software
+->Filtern nach einzelen Geräten (Namen)
+->Bestellung der jeweiligen Komponente Einkaufsdatum
+->Filter nach hersteller, Art usw. (WHERE Hersteller like "Lenovo" 
+(AND hersteller like "dell") AND ART like "PC")

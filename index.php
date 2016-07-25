@@ -4,6 +4,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet"> </head>
 
+<?php 
+//inlcudes
+require_once '/classes/itverwaltung.class.php';
+$itverwaltung = new itverwaltung();
+?>
+
 <body>
     <div class="Container">
         <div class="row">
@@ -43,7 +49,7 @@
             </div>
             <!--/ Column width 3-->
             <!-- Column width 9-->
-            <div class="col-md-9" id="mainDiv"> Test </div>
+            <div class="col-md-9" id="mainDiv"> Test<?php $itverwaltung->getAllRooms();?> </div>
             <!--/ Column width 9-->
         </div>
     </div>
