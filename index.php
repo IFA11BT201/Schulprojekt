@@ -6,16 +6,18 @@
 
 <?php 
 //inlcudes
-require_once '/classes/itverwaltung.class.php';
-$itverwaltung = new itverwaltung();
+require_once 'classes/itverwaltung.class.php';
+
 ?>
 
 <body>
     <div class="Container">
         <div class="row">
-            
+            <!-- Main Nav -->
+            <?php include 'menu.php'; ?>
+            <!--/ Column width 3-->
             <!-- Column width 9-->
-            <div class="col-md-9" id="mainDiv"> Test<?php $itverwaltung->getAllRooms();?> </div>
+            <div class="col-md-9" id="mainDiv"> Test<?php itverwaltung::getAllRooms();?> </div>
             <!--/ Column width 9-->
         </div>
     </div>
